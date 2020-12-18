@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API: "http://localhost/ecommerce/backend/api/",
+  API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
+  prefixUrlImage: "http://localhost/ecommerce/backend/images/products/",
+
 };
 
 /*

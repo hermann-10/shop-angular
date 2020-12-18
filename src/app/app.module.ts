@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { SingleProductComponent } from './shop/single-product/single-product.com
 import { CartComponent } from './shop/cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ModalAddToCartComponent } from './shop/modal-add-to-cart/modal-add-to-cart.component';
+import { ModalQuickViewComponent } from './shop/modal-quick-view/modal-quick-view.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -42,12 +45,15 @@ const routes: Routes = [
     ProductsComponent,
     SingleProductComponent,
     CartComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ModalAddToCartComponent,
+    ModalQuickViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
