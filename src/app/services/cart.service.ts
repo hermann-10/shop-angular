@@ -10,7 +10,18 @@ export class CartService {
   cart: Cart[] = [];
   cartData = { len:0, cost:0 };
 
-  constructor() { }
+  constructor() {
+    this.initCart();
+   }
+
+   initCart(): void{
+    if(typeof(localStorage) !== 'undefined'){
+      const cart = JSON.parse(localStorage.getItem('cart')); //transformer en tableau 
+      const cartData = JSON.parse(localStorage.getItem('cartData')); //transformer en tableau
+      this.cart = cart ? cart : [];
+      this.cartData = cartData ? cartData : { len:0, cost:0 };
+    }
+   }
 
   updateDataCart(){
     let len=0;
@@ -18,10 +29,14 @@ export class CartService {
 
     this.cart.forEach(element => {
       len += element.number;
-      cost += element.product.price*element.number;
+      cost += element.product.price * element.number;
     });
     this.cartData.len = len;
     this.cartData.cost = cost;
+    if(typeof(localStorage) !== "undefined"){ //Si différent, la valeur existe 
+      localStorage.setItem('cart', JSON.stringify(this.cart)); //transformation du tableau en chaîne de caractère avec JSON.stringify()
+      localStorage.setItem('cartData', JSON.stringify(this.cartData));
+    }
   }
 
   addProductToCart(newProduct: Products):void{
@@ -42,7 +57,7 @@ export class CartService {
   deleteFromCart(productToDelete: Products): void{
     const indexProduct = this.cart.findIndex(element => element.product == productToDelete);
 
-    if(indexProduct){
+    if(indexProduct != -1){
       if(this.cart[indexProduct].number>1){
         this.cart[indexProduct].number--;
       }else{ //donc égal à 1
