@@ -5,6 +5,7 @@ import { Products } from '../model/products';
 import { Result } from '../model/result';
 import { environment } from './../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,5 +36,13 @@ export class ProductsService {
         }
       }
     )  
+  }
+
+  getProductById(id: number): Products{
+    const product = this.products.find(element => element.idProduct == id);
+    if(product){
+      return product;
+    }
+    return null;
   }
 }
