@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
 import { ProductsService } from '../../services/products.service';
+import { Products } from './../../model/products';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +16,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   prefixUrlImage = `${environment.prefixUrlImage}`;
   prodSub: Subscription;
 
-  constructor(private prodService: ProductsService) { }
+  constructor(private prodService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
     this.prodSub = this.prodService.prodSubject.subscribe( //on écoute si on recoit des donnàes
@@ -27,6 +29,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.prodSub.unsubscribe; // se désabonner
+  }
+
+  addToCart(product: Products): void{
+    this.cartService.addProductToCart(product);
+  }
+
+  deleteFromCart(product: Products): void{
+    this.cartService.deleteFromCart(product);
   }
 
 }
