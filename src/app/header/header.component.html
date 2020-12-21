@@ -115,7 +115,11 @@
                     <ul class="main-menu d-flex">
                         <li routerLink="active"><a routerLink="/home">Home</a></li>
                         <li routerLink="active"><a routerLink="/shop">Shop</a></li>
-                        <li routerLink="active"><a>Category</a></li>
+                        <li routerLink="active"><a>Category</a>
+                            <ul class="sub-menu">
+                                <li *ngFor="let cat of categories"><a [routerLink]="['/category',cat.idCategory]">{{ cat.name }}</a></li>
+                            </ul>
+                        </li>
                         <li routerLink="active"><a routerLink="/contact">Contact</a></li>
                         <li routerLink="active"><a routerLink="/login">Login</a></li>
                         <li routerLink="active"><a routerLink="/register">Register</a></li>
