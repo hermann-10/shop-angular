@@ -13,6 +13,7 @@ export class ProductsService {
 
   products: Products [] = [];
   prodSubject = new Subject<Products[]>(); //observable
+  numberOfProductByPage = 6;
 
   constructor(private httpClient: HttpClient) {
     this.getProductsFromServer(); //on initialise les données
@@ -42,6 +43,15 @@ export class ProductsService {
     const product = this.products.find(element => element.idProduct == id);
     if(product){
       return product;
+    }
+    return null;
+  }
+
+  getProductByPage(numberPage: number): Products[]{
+    const numberOfPage = this.products.length/this.numberOfProductByPage;
+    if(numberPage > 0 || numberPage < numberOfPage){
+      const prodResult = this.products.slice(numberPage*this.numberOfProductByPage,(numberPage+1)*this.numberOfProductByPage);
+      return prodResult;
     }
     return null;
   }
