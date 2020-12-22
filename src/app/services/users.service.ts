@@ -53,10 +53,14 @@ export class UsersService {
         '&firstname=' + newUser.firstname + '&lastname' + newUser.lastname + '&dateBirth=' +
         newUser.dateBirth + '&pseudo=' + newUser.pseudo;
 
-        this.httpClient.get(url).subscribe(
+        this.httpClient.get<Result>(url).subscribe(
           (data: Result) => {
+            console.log(data);
             if(data.status == 200){
-              this.authentifier(newUser);
+              //this.authentifier(newUser);
+              this.user = data.result; 
+              this.isAuth = true;
+              this.emitUser();
               resolve(data.result);
             }else{
               reject(data.message);
@@ -70,7 +74,9 @@ export class UsersService {
     )
   }
 
-  logout(){
-
+  logout(): void{
+    this.user = null;
+    this.isAuth = false;
+    this.userSubject = new Subject<Users>();
   }
 }

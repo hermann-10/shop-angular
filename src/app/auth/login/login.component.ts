@@ -40,7 +40,12 @@ export class LoginComponent implements OnInit {
     ).catch((error =>{
       console.log(error);
       this.errorMessage = error;
-    }))
+      setTimeout(() =>{
+        this.errorMessage = null;
+      }, 3000);
+
+      
+    }));
   }
 
 }
