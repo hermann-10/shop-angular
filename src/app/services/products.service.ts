@@ -25,7 +25,6 @@ export class ProductsService {
 
   getProductsFromServer(){
     const url = `${environment.API+'products?API_KEY='+environment.API_KEY}`;
-    console.log(url);
 
     this.httpClient.get(url).subscribe( //Cela nous retourne un observable
       (dataProducts: Result) =>{

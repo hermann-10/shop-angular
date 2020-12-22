@@ -19,6 +19,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ModalAddToCartComponent } from './shop/modal-add-to-cart/modal-add-to-cart.component';
 import { ModalQuickViewComponent } from './shop/modal-quick-view/modal-quick-view.component';
 import { CategoryComponent } from './category/category.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -56,7 +57,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
