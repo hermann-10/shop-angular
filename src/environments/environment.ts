@@ -5,9 +5,11 @@
 export const environment = {
   production: false,
   //API: "http://localhost/ecommerce/backend/api/",
-  API: "https://api-jstore.espero-soft.com/api/",
-  API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
-  prefixUrlImage: "http://localhost/ecommerce/backend/images/products/",
+  API: 'https://api-jstore.espero-soft.com/api/',
+  API_KEY: 'adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41',
+  prefixUrlImage: 'http://localhost/ecommerce/backend/images/products/',
+  ID_CLIENT_PAYPAL: 'AbH0VHi6E51_MAskcP__TA2UFaU5PiQI3iMPLECAGmFiYwynj4o5jUwcRjiSx_HEBXmr4KhAQN8L7S-F',
+  CURRENCY: 'CHF'
 
 };
 

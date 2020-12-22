@@ -32,7 +32,7 @@
                         </ul>
 
                         <ul class="amount">
-                            <li>$ {{ cartData.cost }}</li>
+                            <li *ngFor="let data of cart">$ {{ (data.number*data.product.price).toFixed(2) }}</li>
                             <li>$0</li>
                             <hr>
                             <li>$ {{ cartData.cost }}</li>
@@ -50,6 +50,7 @@
                         </ul>
                     </li>
                     <li class="list-group-item text-center">
+                        <app-button-paypal [price]="(cartData.cost*1.2).toFixed(2) "></app-button-paypal>
                         <div id="paypal-button-container" class="">Proceed to checkout</div>
 
                     </li>

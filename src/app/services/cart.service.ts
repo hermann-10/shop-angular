@@ -66,4 +66,10 @@ export class CartService {
     }
     this.updateDataCart();
   }
+
+  removeElementOfCart(index: number):void{
+    this.cart.splice(index, 1);
+    this.updateDataCart();
+
+  }
 }
