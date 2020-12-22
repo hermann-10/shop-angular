@@ -20,6 +20,8 @@ import { ModalAddToCartComponent } from './shop/modal-add-to-cart/modal-add-to-c
 import { ModalQuickViewComponent } from './shop/modal-quick-view/modal-quick-view.component';
 import { CategoryComponent } from './category/category.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './shop/checkout/checkout.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -28,6 +30,7 @@ const routes: Routes = [
   {path: 'single-product/:id', component: SingleProductComponent},
   {path: 'category/:id', component: CategoryComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'checkout', canActivate: [AuthGuard], component: CheckoutComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'notFound', component: NotFoundComponent},
@@ -51,7 +54,8 @@ const routes: Routes = [
     NotFoundComponent,
     ModalAddToCartComponent,
     ModalQuickViewComponent,
-    CategoryComponent
+    CategoryComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API: "http://localhost/ecommerce/backend/api/",
+  //API: "http://localhost/ecommerce/backend/api/",
+  API: "https://api-jstore.espero-soft.com/api/",
   API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
   prefixUrlImage: "http://localhost/ecommerce/backend/images/products/",
 

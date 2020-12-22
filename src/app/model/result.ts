@@ -3,4 +3,5 @@ export interface Result {
     message: string;
     result;
     time: string;
+    args: string;
 }

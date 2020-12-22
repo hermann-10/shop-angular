@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Cart } from 'src/app/model/cart';
+import { CartService } from 'src/app/services/cart.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Users } from './../../model/users';
 
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage;
   
 
-  constructor(private userService: UsersService, private fb : FormBuilder, private router: Router) { }
+  constructor(private userService: UsersService, private fb : FormBuilder, private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.initFormLogin();
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
   initFormLogin(): void{
     this.loginForm = this.fb.group({
       email: this.fb.control('', Validators.email),
-      password: this.fb.control('', Validators.minLength(6))
+      password: this.fb.control('', Validators.minLength(4))
     })
   }
 
@@ -35,15 +37,20 @@ export class LoginComponent implements OnInit {
     const newUser: Users = {email: email, password: password};
     this.userService.authentifier(newUser).then(
       (data)=> {
-        this.router.navigate(['/shop']);
+        const cart = this.cartService.cart;
+        if(cart.length){
+          this.router.navigate(['/checkout']); //if the cart is not empty, redirect to the checkout page
+        }else{
+          this.router.navigate(['/shop']);
+        }
+        
       }
     ).catch((error =>{
       console.log(error);
       this.errorMessage = error;
       setTimeout(() =>{
         this.errorMessage = null;
-      }, 3000);
-
+      }, 2000);
       
     }));
   }
