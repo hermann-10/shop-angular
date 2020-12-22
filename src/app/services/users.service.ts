@@ -28,7 +28,8 @@ export class UsersService {
         this.httpClient.get(url).subscribe(
           (data: Result)=>{
             if(data.status == 200){
-              this.user = data.args; // stocker les données de l'utilisateur
+              this.user = data.result;
+              //this.user = data.args; // stocker les données de l'utilisateur
               this.isAuth = true;
               this.emitUser();
               resolve(data.result);
@@ -44,7 +45,6 @@ export class UsersService {
       }
     )
   }
-
   
   createUser(newUser: Users){
     return new Promise(
@@ -59,8 +59,8 @@ export class UsersService {
           (data: Result) => {
             console.log(data);
             if(data.status == 200){
-              //this.authentifier(newUser);
-              this.user = data.result; 
+              this.authentifier(newUser);
+              //this.user = data.result; 
               this.isAuth = true;
               this.emitUser();
               resolve(data.result);

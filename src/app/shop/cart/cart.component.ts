@@ -32,4 +32,9 @@ export class CartComponent implements OnInit {
     this.cartService.deleteFromCart(product);
   }
 
+  deleteDirectlyProduct(productToDelete: Products): void{
+ 
+    this.cartService.deleteWithBtnTrashFromCart(productToDelete);
+  }
+
 }
