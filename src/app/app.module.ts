@@ -30,6 +30,7 @@ const routes: Routes = [
   {path: 'shop', component: ShopComponent},
   {path: 'cart', component: CartComponent},
   {path: 'single-product/:id', component: SingleProductComponent},
+  {path: 'category', component: CategoryComponent},
   {path: 'category/:id', component: CategoryComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'checkout', canActivate: [AuthGuard], component: CheckoutComponent},

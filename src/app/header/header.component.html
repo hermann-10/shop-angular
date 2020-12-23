@@ -23,15 +23,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD $ <i class="ion ion-ios-arrow-down"></i> </a>
-
+                                <a href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CHF <i class="ion ion-ios-arrow-down"></i> </a>
                             </li>
                             <li class="english">
                                 <a href="#" id="dropdown3" class="pr-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="assets/img/logo/us-flag.jpg" alt="us flag"> English
                                     <i class="ion ion-ios-arrow-down"></i>
                                 </a>
-
                             </li>
                         </ul>
                     </nav>
@@ -59,14 +57,13 @@
                                     <span class="text-muted">Call us:</span>
                                 </div>
                                 <div class="phone">
-                                    <a href="tel:(+33)752152560" class="text-dark">(+33)752152560</a>
+                                    <a href="tel:(+41) 79 888 99 99" class="text-dark">(+41) 79 888 99 99</a>
                                 </div>
                             </div>
                         </div>
                         <!-- static-media end -->
                         <div class="cart-block-links theme1">
                             <ul class="d-flex">
-
                                 <li class="mr-0 cart-block position-relative">
                                     <a class="offcanvas-toggle" routerLink="/cart">
                                         <span class="position-relative">
@@ -104,7 +101,7 @@
         </div>
     </div>
     <!-- header-middle end -->
-   
+
 <!-- </header> -->
 
     <nav class="header-bottom theme1 d-none d-lg-block">
@@ -114,7 +111,7 @@
                     <ul class="main-menu d-flex">
                         <li routerLink="active"><a routerLink="/home">Home</a></li>
                         <li routerLink="active"><a routerLink="/shop">Shop</a></li>
-                        <li routerLink="active"><a>Category</a>
+                        <li routerLink="active"><a routerLink="/category">Category</a>
                             <ul class="sub-menu">
                                 <li *ngFor="let cat of categories"><a [routerLink]="['/category',cat.idCategory]">{{ cat.name }}</a></li>
                             </ul>
